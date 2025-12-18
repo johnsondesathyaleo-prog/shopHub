@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import { ROUTES } from '../../constants/routes';
-import { formatCurrency } from '../../utils/formatters';
+import { formatCurrency, calculateTax } from '../../utils/formatters';
 import Button from '../../components/common/Button/Button';
 import './CartPage.css';
 
@@ -102,7 +102,7 @@ const CartPage = () => {
                         <div className="summary-row">
                             {/* UIFIX AI - 3 */}
                             <span>Tax (10%):</span>
-                            <span>{formatCurrency(getCartTotal() * 0.5)}</span>
+                            <span>{formatCurrency(calculateTax(getCartTotal()))}</span>
                         </div>
                         <div className="summary-divider"></div>
                         <div className="summary-row summary-total">
@@ -112,7 +112,7 @@ const CartPage = () => {
                                 {formatCurrency(
                                     getCartTotal() +
                                     (getCartTotal() > 100 ? 0 : 10) +
-                                    getCartTotal() * 0.5
+                                    calculateTax(getCartTotal())
                                 )}
                             </span>
                         </div>
