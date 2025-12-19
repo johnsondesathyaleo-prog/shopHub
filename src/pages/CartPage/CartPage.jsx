@@ -102,7 +102,7 @@ const CartPage = () => {
                         <div className="summary-row">
                             {/* UIFIX AI - 3 */}
                             <span>Tax (10%):</span>
-                            <span>{formatCurrency(getCartTotal() * 0.5)}</span>
+                            <span>{formatCurrency(getCartTotal() * 0.1)}</span>
                         </div>
                         <div className="summary-divider"></div>
                         <div className="summary-row summary-total">
@@ -112,7 +112,7 @@ const CartPage = () => {
                                 {formatCurrency(
                                     getCartTotal() +
                                     (getCartTotal() > 100 ? 0 : 10) +
-                                    getCartTotal() * 0.5
+                                    getCartTotal() * 0.1
                                 )}
                             </span>
                         </div>
